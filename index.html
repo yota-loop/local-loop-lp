@@ -12,18 +12,16 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue: #1565C0;
-      --blue-light: #1E88E5;
-      --blue-pale: #E3F2FD;
-      --orange: #F57C00;
-      --orange-light: #FF9800;
-      --green: #2E7D32;
-      --text: #1a1a1a;
-      --text-sub: #555;
-      --border: #e0e0e0;
-      --bg-gray: #F8F9FA;
-      --white: #ffffff;
-      --campaign: #B71C1C;
+      --green: #3d7a3d;
+      --green-light: #4e9a4e;
+      --green-pale: #f0f7f0;
+      --green-border: #c8e0c8;
+      --orange: #e07000;
+      --text: #222;
+      --text-sub: #666;
+      --border: #ddd;
+      --bg: #fff;
+      --bg-gray: #f7f7f5;
     }
 
     html { scroll-behavior: smooth; }
@@ -31,363 +29,338 @@
     body {
       font-family: 'Noto Sans JP', sans-serif;
       color: var(--text);
-      line-height: 1.8;
-      font-size: 16px;
-      padding-top: 60px; /* fixed header */
-      padding-bottom: 70px; /* fixed footer */
+      line-height: 1.9;
+      font-size: 15px;
+      background: var(--bg);
+      padding-top: 56px;
+      padding-bottom: 64px;
     }
 
     /* ========== FIXED HEADER ========== */
     .fixed-header {
       position: fixed;
       top: 0; left: 0; right: 0;
-      height: 60px;
-      background: var(--white);
-      border-bottom: 2px solid var(--blue);
+      height: 56px;
+      background: #fff;
+      border-bottom: 3px solid var(--green);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 16px;
+      padding: 0 20px;
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,.1);
     }
-    .fixed-header .logo {
-      font-size: 18px;
+    .logo {
+      font-size: 17px;
       font-weight: 900;
-      color: var(--blue);
-      letter-spacing: .05em;
+      color: var(--green);
+      letter-spacing: .08em;
     }
-    .fixed-header .header-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .fixed-header .tel {
+    .header-right { display: flex; align-items: center; gap: 12px; }
+    .header-tel {
       font-size: 13px;
       font-weight: 700;
       color: var(--text);
       text-decoration: none;
     }
-    .fixed-header .tel span { font-size: 16px; color: var(--blue); }
-    .btn-header {
-      background: var(--blue);
-      color: white;
+    .btn-sm {
+      background: var(--green);
+      color: #fff;
       font-size: 12px;
       font-weight: 700;
-      padding: 8px 12px;
-      border-radius: 4px;
+      padding: 7px 14px;
+      border-radius: 3px;
       text-decoration: none;
       white-space: nowrap;
     }
 
     /* ========== FIXED FOOTER CTA ========== */
-    .fixed-footer-cta {
+    .fixed-footer {
       position: fixed;
       bottom: 0; left: 0; right: 0;
-      background: var(--blue);
-      color: white;
+      height: 64px;
+      background: var(--green);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      padding: 0 16px;
-      height: 70px;
+      gap: 16px;
       z-index: 1000;
-      box-shadow: 0 -2px 8px rgba(0,0,0,.2);
     }
-    .fixed-footer-cta .campaign-label {
-      font-size: 11px;
-      opacity: .85;
-      line-height: 1.3;
-    }
+    .fixed-footer-note { font-size: 12px; color: rgba(255,255,255,.8); }
     .btn-footer {
       background: var(--orange);
-      color: white;
+      color: #fff;
       font-size: 14px;
       font-weight: 700;
-      padding: 12px 20px;
-      border-radius: 6px;
+      padding: 12px 24px;
+      border-radius: 3px;
       text-decoration: none;
       white-space: nowrap;
-      flex-shrink: 0;
     }
 
     /* ========== COMMON ========== */
-    .section { padding: 60px 20px; }
-    .section-inner { max-width: 680px; margin: 0 auto; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+    .section { padding: 64px 0; }
+    .section-alt { background: var(--bg-gray); }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: .15em;
+      text-align: center;
+      margin-bottom: 8px;
+    }
     .section-title {
       font-size: 22px;
       font-weight: 900;
       text-align: center;
-      margin-bottom: 32px;
-      line-height: 1.5;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      position: relative;
     }
-    .section-title .accent { color: var(--blue); }
-    .section-title .under {
-      display: inline-block;
-      border-bottom: 3px solid var(--orange);
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 3px;
+      background: var(--green);
+      margin: 12px auto 0;
     }
 
     .btn-main {
       display: block;
       background: var(--orange);
-      color: white;
-      font-size: 18px;
+      color: #fff;
+      font-size: 17px;
       font-weight: 700;
       text-align: center;
       padding: 18px 24px;
-      border-radius: 8px;
+      border-radius: 3px;
       text-decoration: none;
-      margin: 16px auto;
       max-width: 400px;
-      box-shadow: 0 4px 12px rgba(245,124,0,.4);
-      transition: transform .1s, box-shadow .1s;
+      margin: 16px auto;
     }
-    .btn-main:active { transform: translateY(1px); box-shadow: none; }
-
     .btn-line {
       display: block;
       background: #06C755;
-      color: white;
-      font-size: 16px;
+      color: #fff;
+      font-size: 15px;
       font-weight: 700;
       text-align: center;
       padding: 14px 24px;
-      border-radius: 8px;
+      border-radius: 3px;
       text-decoration: none;
-      margin: 8px auto;
       max-width: 400px;
+      margin: 8px auto;
     }
 
     /* ========== FV ========== */
     .fv {
-      background: linear-gradient(135deg, #0D47A1 0%, #1565C0 60%, #1976D2 100%);
-      color: white;
-      padding: 40px 20px;
+      background: var(--green-pale);
+      border-bottom: 1px solid var(--green-border);
+      padding: 48px 0 40px;
     }
-    .fv-inner { max-width: 680px; margin: 0 auto; }
-
-    .fv-area-tag {
+    .fv-tag {
       display: inline-block;
-      background: rgba(255,255,255,.2);
-      border: 1px solid rgba(255,255,255,.4);
-      font-size: 13px;
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-size: 12px;
       font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 16px;
+      padding: 3px 12px;
+      border-radius: 2px;
+      margin-bottom: 20px;
     }
     .fv-catch {
       font-size: 26px;
       font-weight: 900;
-      line-height: 1.5;
-      margin-bottom: 8px;
+      line-height: 1.6;
+      margin-bottom: 16px;
     }
-    .fv-catch .dash { font-size: 22px; opacity: .8; }
-    .fv-catch .red { color: #FF8A80; }
+    .fv-catch .red { color: #c0392b; }
     .fv-sub {
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 1.7;
-      margin-bottom: 24px;
-      opacity: .95;
+      font-size: 15px;
+      color: var(--text-sub);
+      margin-bottom: 32px;
+      line-height: 1.8;
     }
 
     .fv-campaign {
-      background: var(--campaign);
-      border-radius: 8px;
+      border: 2px solid #c0392b;
+      border-radius: 3px;
       padding: 12px 16px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       font-size: 14px;
       font-weight: 700;
-      line-height: 1.6;
+      color: #c0392b;
+      line-height: 1.7;
     }
 
     .fv-price {
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.3);
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 20px;
+      margin-bottom: 24px;
     }
     .fv-price table { width: 100%; border-collapse: collapse; }
-    .fv-price td { padding: 4px 0; font-size: 15px; }
-    .fv-price .price-label { opacity: .85; }
-    .fv-price .price-val { text-align: right; font-weight: 900; font-size: 20px; }
-    .fv-price .price-note { font-size: 12px; opacity: .7; text-align: right; margin-top: 4px; }
+    .fv-price td { padding: 6px 0; font-size: 15px; border-bottom: 1px solid #f0f0f0; }
+    .fv-price tr:last-child td { border-bottom: none; }
+    .fv-price .price-val { text-align: right; font-weight: 900; font-size: 20px; color: var(--green); }
+    .fv-price-note { font-size: 12px; color: var(--text-sub); margin-top: 8px; }
 
     .fv-badges {
       display: flex;
-      gap: 8px;
       flex-wrap: wrap;
-      margin-bottom: 24px;
+      gap: 8px;
+      margin-bottom: 28px;
     }
     .fv-badge {
-      background: rgba(255,255,255,.15);
-      border: 1px solid rgba(255,255,255,.3);
-      border-radius: 20px;
       font-size: 13px;
       font-weight: 700;
-      padding: 6px 12px;
+      color: var(--green);
+      padding: 5px 12px;
+      border: 1px solid var(--green);
+      border-radius: 2px;
+      background: #fff;
     }
     .fv-badge::before { content: "✓ "; }
 
-    /* ========== BADGE SECTION ========== */
-    .badge-section {
-      background: var(--blue);
-      padding: 24px 16px;
+    /* ========== BADGE ROW ========== */
+    .badge-row {
+      background: var(--green);
+      padding: 20px 0;
     }
     .badge-grid {
-      max-width: 680px;
-      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 1px;
+      background: rgba(255,255,255,.2);
     }
-    .badge-item {
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 8px;
+    .badge-cell {
+      background: var(--green);
       text-align: center;
-      padding: 12px 8px;
-      color: white;
+      padding: 14px 8px;
+      color: #fff;
     }
-    .badge-item .badge-icon { font-size: 22px; margin-bottom: 4px; }
-    .badge-item .badge-label { font-size: 11px; font-weight: 700; line-height: 1.4; }
+    .badge-cell .icon { font-size: 20px; margin-bottom: 4px; }
+    .badge-cell .label { font-size: 12px; font-weight: 700; line-height: 1.4; }
 
     /* ========== TARGET ========== */
-    .target-section { background: var(--bg-gray); }
     .check-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .check-list li {
-      background: white;
-      border-left: 4px solid var(--blue);
-      padding: 12px 16px;
-      border-radius: 0 6px 6px 0;
+      padding: 14px 16px 14px 20px;
+      border-left: 3px solid var(--green);
+      background: #fff;
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
-    .check-list li::before { content: "✓ "; color: var(--blue); font-weight: 900; }
+    .check-list li::before { content: "✓ "; color: var(--green); font-weight: 700; }
     .target-note {
-      margin-top: 24px;
-      text-align: center;
+      margin-top: 28px;
+      padding: 20px;
+      background: var(--green-pale);
+      border-radius: 3px;
       font-size: 15px;
-      font-weight: 700;
-      line-height: 1.8;
+      line-height: 1.9;
+      text-align: center;
     }
 
     /* ========== TROUBLE ========== */
-    .trouble-section { background: white; }
-    .trouble-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .trouble-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
     .trouble-list li {
-      border: 2px solid #FFCDD2;
-      background: #FFF5F5;
-      border-radius: 6px;
-      padding: 12px 16px;
+      padding: 13px 16px;
+      background: #fff9f9;
+      border: 1px solid #f0d0d0;
+      border-radius: 3px;
       font-size: 15px;
+      line-height: 1.7;
     }
-    .trouble-list li::before { content: "□ "; color: #C62828; font-weight: 900; }
+    .trouble-list li::before { content: "□ "; color: #c0392b; font-weight: 700; }
 
-    .trouble-deep {
+    .trouble-box {
       background: #1a1a1a;
-      color: white;
-      border-radius: 10px;
-      padding: 24px 20px;
-      margin-top: 32px;
+      color: #fff;
+      border-radius: 4px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
     }
-    .trouble-deep h3 {
-      font-size: 20px;
+    .trouble-box h3 {
+      font-size: 19px;
       font-weight: 900;
       margin-bottom: 16px;
-      line-height: 1.5;
-      color: #FF8A80;
+      line-height: 1.6;
+      color: #ff9999;
     }
-    .trouble-deep p {
-      font-size: 15px;
-      line-height: 2;
-      margin-bottom: 12px;
-    }
-    .trouble-deep p:last-child { margin-bottom: 0; }
+    .trouble-box p { font-size: 14px; line-height: 2; margin-bottom: 10px; }
+    .trouble-box p:last-child { margin-bottom: 0; }
 
     .alert-box {
-      background: #FFF9C4;
-      border: 2px solid #F9A825;
-      border-radius: 8px;
+      background: #fffbf0;
+      border: 1px solid #e0c060;
+      border-radius: 4px;
       padding: 20px;
-      margin-top: 24px;
     }
-    .alert-box h3 { font-size: 17px; font-weight: 900; margin-bottom: 10px; color: #E65100; }
-    .alert-box p { font-size: 14px; line-height: 1.8; }
+    .alert-box h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: #a06000; }
+    .alert-box p { font-size: 14px; line-height: 1.9; color: var(--text-sub); }
 
-    /* ========== SCENE ========== */
-    .scene-section { background: var(--blue-pale); }
-    .voice-list { display: flex; flex-direction: column; gap: 16px; }
+    /* ========== VOICES ========== */
+    .voice-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
     .voice-item {
-      background: white;
-      border-left: 4px solid var(--blue);
-      border-radius: 0 8px 8px 0;
-      padding: 16px 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 18px 20px;
       font-size: 15px;
       line-height: 1.8;
     }
-    .voice-item .quote { font-size: 22px; color: var(--blue); line-height: 1; margin-bottom: 4px; }
-    .scene-story {
-      background: white;
-      border-radius: 10px;
-      padding: 24px 20px;
-      margin-top: 24px;
-      border: 1px solid var(--border);
+    .voice-item .q { font-size: 28px; color: var(--green); line-height: 1; margin-bottom: 6px; font-family: Georgia, serif; }
+    .scene-box {
+      background: var(--green-pale);
+      border-radius: 4px;
+      padding: 24px;
       font-size: 15px;
       line-height: 2;
     }
-    .scene-story .punch {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--blue);
-      margin-top: 12px;
+    .scene-box .punch {
       display: block;
+      margin-top: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--green);
     }
 
     /* ========== REASONS ========== */
-    .reasons-section { background: white; }
-    .reason-list { display: flex; flex-direction: column; gap: 24px; }
-    .reason-item {
-      border: 2px solid var(--blue-pale);
-      border-radius: 10px;
-      padding: 20px;
+    .reason-list { display: flex; flex-direction: column; gap: 28px; }
+    .reason-item { border-bottom: 1px solid var(--border); padding-bottom: 28px; }
+    .reason-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .reason-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
     }
     .reason-num {
-      display: inline-block;
-      background: var(--blue);
-      color: white;
       font-size: 11px;
       font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-bottom: 10px;
+      color: var(--green);
+      letter-spacing: .1em;
+      white-space: nowrap;
     }
-    .reason-title {
-      font-size: 17px;
-      font-weight: 900;
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-    .reason-body { font-size: 14px; line-height: 1.9; color: var(--text-sub); }
+    .reason-title { font-size: 17px; font-weight: 900; line-height: 1.5; }
+    .reason-body { font-size: 14px; color: var(--text-sub); line-height: 2; }
     .reason-body strong { color: var(--text); }
 
     /* ========== PRICE ========== */
-    .price-section { background: var(--bg-gray); }
     .price-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 24px;
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      margin-bottom: 20px;
+      background: #fff;
     }
     .price-table th {
-      background: var(--blue);
-      color: white;
+      background: var(--green);
+      color: #fff;
       padding: 12px 16px;
       font-size: 14px;
       font-weight: 700;
@@ -399,301 +372,260 @@
       border-bottom: 1px solid var(--border);
     }
     .price-table tr:last-child td { border-bottom: none; }
-    .price-table .price-amount {
+    .price-table .amount {
+      text-align: right;
       font-size: 22px;
       font-weight: 900;
-      color: var(--blue);
-      text-align: right;
+      color: var(--green);
     }
-    .price-table .price-note-small { font-size: 11px; color: var(--text-sub); }
-    .price-note { font-size: 13px; color: var(--text-sub); text-align: center; margin-bottom: 24px; }
+    .price-table .amount small { font-size: 13px; font-weight: 400; }
+    .price-note { font-size: 12px; color: var(--text-sub); margin-bottom: 28px; }
 
     .campaign-box {
-      background: white;
-      border: 2px solid var(--campaign);
-      border-radius: 10px;
+      border: 2px solid #c0392b;
+      border-radius: 4px;
       padding: 20px;
       margin-bottom: 24px;
     }
     .campaign-title {
-      background: var(--campaign);
-      color: white;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      padding: 6px 12px;
-      border-radius: 4px;
-      display: inline-block;
-      margin-bottom: 16px;
+      color: #c0392b;
+      margin-bottom: 14px;
+      letter-spacing: .05em;
     }
-    .campaign-benefits { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .campaign-benefits li {
+    .campaign-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .campaign-list li {
       font-size: 15px;
       padding: 10px 14px;
-      background: #FFF5F5;
-      border-radius: 6px;
+      background: #fff9f9;
+      border-radius: 3px;
       line-height: 1.6;
     }
-    .campaign-benefits li strong { color: var(--campaign); font-size: 17px; }
-    .campaign-period {
-      text-align: center;
-      font-size: 13px;
-      color: var(--campaign);
-      font-weight: 700;
-      margin-top: 12px;
-    }
+    .campaign-list li strong { color: #c0392b; }
+    .campaign-period { font-size: 12px; color: #c0392b; font-weight: 700; margin-top: 12px; }
 
     /* ========== STEPS ========== */
-    .steps-section { background: white; }
     .step-list { display: flex; flex-direction: column; gap: 0; }
     .step-item {
       display: flex;
       gap: 16px;
-      position: relative;
       padding-bottom: 24px;
+      position: relative;
     }
-    .step-item:last-child { padding-bottom: 0; }
     .step-item:not(:last-child)::after {
       content: "";
       position: absolute;
-      left: 20px;
-      top: 44px;
+      left: 17px;
+      top: 38px;
       bottom: 0;
       width: 2px;
-      background: var(--blue-pale);
+      background: var(--green-border);
     }
     .step-num {
       flex-shrink: 0;
-      width: 40px;
-      height: 40px;
-      background: var(--blue);
-      color: white;
+      width: 36px;
+      height: 36px;
+      background: var(--green);
+      color: #fff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
-      font-weight: 900;
+      font-size: 13px;
+      font-weight: 700;
       position: relative;
       z-index: 1;
     }
-    .step-content { padding-top: 8px; }
+    .step-content { padding-top: 6px; }
     .step-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-    .step-body { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+    .step-body { font-size: 14px; color: var(--text-sub); line-height: 1.8; }
 
     /* ========== ASSURANCE ========== */
-    .assurance-section { background: var(--bg-gray); }
-    .assurance-grid { display: flex; flex-direction: column; gap: 12px; }
+    .assurance-list { display: flex; flex-direction: column; gap: 14px; }
     .assurance-item {
-      background: white;
-      border-radius: 8px;
-      padding: 16px;
       display: flex;
-      gap: 14px;
+      gap: 16px;
       align-items: flex-start;
+      padding: 16px;
+      background: #fff;
+      border-radius: 4px;
+      border: 1px solid var(--border);
     }
-    .assurance-icon { font-size: 24px; flex-shrink: 0; }
-    .assurance-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-    .assurance-body { font-size: 13px; color: var(--text-sub); line-height: 1.6; }
+    .assurance-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .assurance-title { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+    .assurance-body { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
 
     /* ========== AREA ========== */
-    .area-section { background: white; }
     .area-box {
-      background: var(--blue-pale);
-      border-radius: 10px;
-      padding: 24px 20px;
+      background: var(--green-pale);
+      border: 1px solid var(--green-border);
+      border-radius: 4px;
+      padding: 28px 20px;
       text-align: center;
     }
-    .area-badge {
-      display: inline-block;
-      background: var(--blue);
-      color: white;
-      font-size: 13px;
+    .area-label {
+      font-size: 12px;
       font-weight: 700;
-      padding: 4px 16px;
-      border-radius: 20px;
+      color: var(--green);
       margin-bottom: 12px;
     }
     .area-names {
       font-size: 17px;
       font-weight: 700;
-      line-height: 1.8;
+      line-height: 1.9;
       margin-bottom: 8px;
     }
-    .area-sub { font-size: 13px; color: var(--text-sub); }
+    .area-note { font-size: 13px; color: var(--text-sub); }
 
     /* ========== FAQ ========== */
-    .faq-section { background: var(--bg-gray); }
-    .faq-list { display: flex; flex-direction: column; gap: 12px; }
-    .faq-item { background: white; border-radius: 8px; overflow: hidden; }
+    .faq-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--border); }
+    .faq-item { border-bottom: 1px solid var(--border); }
     .faq-q {
-      padding: 16px 20px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid transparent;
-      transition: background .15s;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 18px 0;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.6;
     }
-    .faq-q:hover { background: var(--bg-gray); }
-    .faq-q .q-mark { color: var(--blue); font-size: 16px; margin-right: 8px; }
-    .faq-q .arrow { font-size: 12px; color: var(--text-sub); transition: transform .2s; }
-    .faq-item.open .faq-q { border-bottom-color: var(--border); }
+    .faq-q .qmark { color: var(--green); font-size: 16px; flex-shrink: 0; }
+    .faq-q .arrow { font-size: 11px; color: var(--text-sub); flex-shrink: 0; margin-top: 4px; transition: transform .2s; }
     .faq-item.open .arrow { transform: rotate(180deg); }
     .faq-a {
-      padding: 0 20px;
       max-height: 0;
       overflow: hidden;
       transition: max-height .3s ease, padding .3s ease;
       font-size: 14px;
-      line-height: 1.8;
+      line-height: 1.9;
       color: var(--text-sub);
+      padding: 0;
     }
-    .faq-item.open .faq-a { max-height: 300px; padding: 16px 20px; }
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 18px; }
 
     /* ========== YES CTA ========== */
-    .yes-section { background: var(--blue); color: white; }
-    .yes-title { font-size: 20px; font-weight: 900; text-align: center; margin-bottom: 24px; }
-    .yes-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .yes-section { background: var(--green); color: #fff; }
+    .yes-section .section-title { color: #fff; }
+    .yes-section .section-title::after { background: rgba(255,255,255,.4); }
+    .yes-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
     .yes-list li {
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 8px;
       padding: 14px 16px;
+      background: rgba(255,255,255,.12);
+      border-radius: 3px;
       font-size: 15px;
       line-height: 1.7;
     }
     .yes-list li::before { content: "✅ "; }
-    .yes-conclusion {
+    .yes-note {
       text-align: center;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
-      line-height: 1.8;
+      line-height: 1.9;
       margin-bottom: 8px;
-      opacity: .95;
     }
     .yes-campaign {
       text-align: center;
       font-size: 13px;
       background: rgba(255,255,255,.15);
       padding: 8px 16px;
-      border-radius: 6px;
+      border-radius: 3px;
       margin-bottom: 24px;
-    }
-    .btn-main-white {
-      display: block;
-      background: var(--orange);
-      color: white;
-      font-size: 18px;
-      font-weight: 700;
-      text-align: center;
-      padding: 18px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      margin: 12px auto;
-      max-width: 400px;
-      box-shadow: 0 4px 12px rgba(0,0,0,.2);
-    }
-    .btn-line-white {
-      display: block;
-      background: #06C755;
-      color: white;
-      font-size: 16px;
-      font-weight: 700;
-      text-align: center;
-      padding: 14px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      margin: 8px auto;
-      max-width: 400px;
     }
 
     /* ========== FINAL CTA ========== */
-    .final-cta { background: white; }
-    .final-cta-box {
+    .cta-box {
       background: var(--bg-gray);
-      border-radius: 12px;
-      padding: 32px 20px;
+      border-radius: 4px;
+      padding: 36px 24px;
       text-align: center;
     }
-    .final-cta-title { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
-    .final-cta-sub { font-size: 14px; color: var(--text-sub); margin-bottom: 20px; }
-    .tel-display {
+    .cta-title { font-size: 20px; font-weight: 900; margin-bottom: 6px; }
+    .cta-sub { font-size: 13px; color: var(--text-sub); margin-bottom: 20px; }
+    .cta-campaign {
+      font-size: 13px;
+      font-weight: 700;
+      color: #c0392b;
+      background: #fff9f9;
+      border: 1px solid #f0d0d0;
+      border-radius: 3px;
+      padding: 10px 16px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    .tel-link {
+      display: block;
       font-size: 28px;
       font-weight: 900;
-      color: var(--blue);
-      margin: 16px 0;
+      color: var(--green);
       text-decoration: none;
-      display: block;
+      margin: 16px 0 4px;
     }
-    .tel-hours { font-size: 12px; color: var(--text-sub); margin-top: 4px; }
+    .tel-hours { font-size: 12px; color: var(--text-sub); }
 
     /* ========== POSTSCRIPT ========== */
-    .ps-section { background: #1a1a1a; color: white; }
-    .ps-title { font-size: 18px; font-weight: 900; margin-bottom: 20px; line-height: 1.5; color: #FF8A80; }
-    .ps-body { font-size: 15px; line-height: 2; margin-bottom: 16px; }
-    .ps-conclusion { font-size: 15px; font-weight: 700; line-height: 1.8; margin-bottom: 24px; color: #E0E0E0; }
+    .ps-section { background: #1a1a1a; color: #fff; }
+    .ps-section .section-title { color: #fff; }
+    .ps-section .section-title::after { background: rgba(255,255,255,.3); }
+    .ps-title-red { color: #ff9999; font-size: 19px; font-weight: 900; margin-bottom: 20px; line-height: 1.6; }
+    .ps-body { font-size: 14px; line-height: 2; margin-bottom: 12px; color: #ccc; }
+    .ps-punch { font-size: 15px; font-weight: 700; color: #fff; line-height: 1.8; margin-bottom: 24px; }
 
     /* ========== NOTES ========== */
-    .notes-section { background: var(--bg-gray); }
-    .notes-title { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
     .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .notes-list li { font-size: 13px; color: var(--text-sub); padding-left: 12px; position: relative; line-height: 1.7; }
+    .notes-list li {
+      font-size: 13px;
+      color: var(--text-sub);
+      padding-left: 12px;
+      position: relative;
+      line-height: 1.7;
+    }
     .notes-list li::before { content: "・"; position: absolute; left: 0; }
 
     /* ========== FOOTER ========== */
-    .footer {
-      background: #0D47A1;
-      color: white;
+    footer {
+      background: var(--green);
+      color: #fff;
       padding: 32px 20px;
       text-align: center;
     }
-    .footer-logo { font-size: 22px; font-weight: 900; margin-bottom: 12px; }
-    .footer-info { font-size: 13px; opacity: .8; line-height: 2; margin-bottom: 16px; }
-    .footer-copy { font-size: 12px; opacity: .6; }
-
-    /* ========== UTILITIES ========== */
-    .mt-8 { margin-top: 8px; }
-    .mt-16 { margin-top: 16px; }
-    .mt-24 { margin-top: 24px; }
-    .text-center { text-align: center; }
+    .footer-logo { font-size: 20px; font-weight: 900; margin-bottom: 10px; letter-spacing: .1em; }
+    .footer-info { font-size: 13px; opacity: .85; line-height: 2; margin-bottom: 12px; }
+    .footer-copy { font-size: 11px; opacity: .6; }
 
     /* ========== RESPONSIVE ========== */
     @media (min-width: 600px) {
-      .fv-catch { font-size: 32px; }
+      .fv-catch { font-size: 30px; }
       .badge-grid { grid-template-columns: repeat(6, 1fr); }
-      .fixed-header .tel { display: block; }
     }
     @media (max-width: 400px) {
-      .fixed-header .tel { display: none; }
-      body { font-size: 15px; }
+      .header-tel { display: none; }
     }
 
-    /* ========== ANIMATIONS ========== */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    /* ========== FADE IN ========== */
+    .fade { opacity: 0; transform: translateY(16px); transition: opacity .5s, transform .5s; }
+    .fade.in { opacity: 1; transform: none; }
   </style>
 </head>
 <body>
 
-<!-- FIXED HEADER -->
+<!-- HEADER -->
 <header class="fixed-header">
   <div class="logo">LOCAL-LOOP</div>
   <div class="header-right">
-    <a href="tel:05052356520" class="tel">
-      <span>050-5235-6520</span>
-    </a>
-    <a href="#final-cta" class="btn-header">お問い合わせ</a>
+    <a href="tel:05052356520" class="header-tel">050-5235-6520</a>
+    <a href="#cta" class="btn-sm">お問い合わせ</a>
   </div>
 </header>
 
 <!-- FV -->
 <section class="fv">
-  <div class="fv-inner">
-    <div class="fv-area-tag">川越市・熊谷市・鴻巣市・東松山市 対応</div>
+  <div class="wrap">
+    <div class="fv-tag">川越市・熊谷市・鴻巣市・東松山市 対応</div>
     <h1 class="fv-catch">
-      エアコンをつけた瞬間、カビ臭い<span class="dash">——</span><br>
+      エアコンをつけた瞬間、カビ臭い——<br>
       <span class="red">その空気、家族が吸っています。</span>
     </h1>
     <p class="fv-sub">
@@ -703,22 +635,25 @@
 
     <div class="fv-campaign">
       【サイト限定】今だけ特別価格！<br>
-      直接ご予約でさらにお得<br>
-      ～2026年4月30日まで～
+      直接ご予約でさらにお得 ～2026年4月30日まで～
     </div>
 
     <div class="fv-price">
       <table>
         <tr>
-          <td class="price-label">壁掛けエアコン</td>
-          <td class="price-val">11,000<small>円（税込）</small></td>
+          <td>壁掛けエアコン（1台目）</td>
+          <td class="price-val">11,000円</td>
         </tr>
         <tr>
-          <td class="price-label">2台目以降</td>
-          <td class="price-val">9,900<small>円</small></td>
+          <td>2台目以降</td>
+          <td class="price-val">9,900円</td>
+        </tr>
+        <tr>
+          <td>お掃除機能付き（1台目）</td>
+          <td class="price-val">19,800円</td>
         </tr>
       </table>
-      <div class="price-note">お掃除機能付きは19,800円〜</div>
+      <p class="fv-price-note">すべて税込・追加料金なし</p>
     </div>
 
     <div class="fv-badges">
@@ -727,27 +662,30 @@
       <span class="fv-badge">出張費0円</span>
     </div>
 
-    <a href="#final-cta" class="btn-main">▶ 今すぐキャンペーン予約する</a>
-    <a href="#final-cta" class="btn-line">LINE で無料相談（24時間受付）</a>
+    <a href="#cta" class="btn-main">今すぐキャンペーン予約する</a>
+    <a href="#cta" class="btn-line">LINEで無料相談（24時間受付）</a>
   </div>
 </section>
 
-<!-- BADGE SECTION -->
-<div class="badge-section">
-  <div class="badge-grid">
-    <div class="badge-item"><div class="badge-icon">🚗</div><div class="badge-label">出張費<br>0円</div></div>
-    <div class="badge-item"><div class="badge-icon">📋</div><div class="badge-label">お見積り<br>無料</div></div>
-    <div class="badge-item"><div class="badge-icon">🛡</div><div class="badge-label">損害保険<br>完備</div></div>
-    <div class="badge-item"><div class="badge-icon">💴</div><div class="badge-label">追加料金<br>なし</div></div>
-    <div class="badge-item"><div class="badge-icon">📅</div><div class="badge-label">土日祝<br>も対応</div></div>
-    <div class="badge-item"><div class="badge-icon">✨</div><div class="badge-label">オプション<br>豊富</div></div>
+<!-- BADGE ROW -->
+<div class="badge-row">
+  <div class="wrap">
+    <div class="badge-grid">
+      <div class="badge-cell"><div class="icon">🚗</div><div class="label">出張費0円</div></div>
+      <div class="badge-cell"><div class="icon">📋</div><div class="label">お見積り無料</div></div>
+      <div class="badge-cell"><div class="icon">🛡</div><div class="label">損害保険完備</div></div>
+      <div class="badge-cell"><div class="icon">💴</div><div class="label">追加料金なし</div></div>
+      <div class="badge-cell"><div class="icon">📅</div><div class="label">土日祝も対応</div></div>
+      <div class="badge-cell"><div class="icon">✨</div><div class="label">オプション豊富</div></div>
+    </div>
   </div>
 </div>
 
 <!-- TARGET -->
-<section class="section target-section">
-  <div class="section-inner fade-in">
-    <h2 class="section-title"><span class="under">こんなご家庭のお悩みを<br>解決します</span></h2>
+<section class="section section-alt">
+  <div class="wrap fade">
+    <div class="section-label">FOR WHOM</div>
+    <h2 class="section-title">こんなご家庭のお悩みを解決します</h2>
     <ul class="check-list">
       <li>子どもがエアコンの風でくしゃみをする。内部の汚れが気になっている</li>
       <li>共働きで平日は時間がない。土日に来てくれる業者を探している</li>
@@ -755,18 +693,19 @@
       <li>「追加料金を取られた」という口コミを見て、業者選びが怖くなった</li>
       <li>一度もプロに頼んだことがない。どこに頼めばいいかわからない</li>
     </ul>
-    <p class="target-note">
+    <div class="target-note">
       1台でも、家中まとめてでも。<br>
       川越・熊谷・鴻巣エリアのご家庭を<br>
       <strong>LOCAL-LOOPがサポートします。</strong>
-    </p>
+    </div>
   </div>
 </section>
 
 <!-- TROUBLE -->
-<section class="section trouble-section">
-  <div class="section-inner fade-in">
-    <h2 class="section-title"><span class="under">こんなこと、ありませんか？</span></h2>
+<section class="section">
+  <div class="wrap fade">
+    <div class="section-label">PROBLEM</div>
+    <h2 class="section-title">こんなこと、ありませんか？</h2>
     <ul class="trouble-list">
       <li>リビングのエアコンをつけた瞬間、モワッとカビ臭い風が吹いてくる</li>
       <li>寝室のエアコンをつけると、子どもがくしゃみを連発する</li>
@@ -774,44 +713,45 @@
       <li>「そろそろプロに頼もう」と思いながら、もう1年以上経っている</li>
     </ul>
 
-    <div class="trouble-deep">
+    <div class="trouble-box">
       <h3>フィルター掃除だけでは、<br>カビは取れません。</h3>
-      <p>カビやダニは、エアコン内部の<br>熱交換器やファンの奥で繁殖します。</p>
-      <p>スイッチを入れるたびに、<br>目に見えないカビの胞子が部屋中に広がる。</p>
+      <p>カビやダニは、エアコン内部の熱交換器やファンの奥で繁殖します。</p>
+      <p>スイッチを入れるたびに、目に見えないカビの胞子が部屋中に広がる。</p>
       <p>小さなお子さんがその空気を吸い続けると、アレルギー性の鼻炎や、ひどい場合は肺炎の原因になることもあります。</p>
     </div>
 
     <div class="alert-box">
       <h3>「お掃除機能付き」でも安心できません</h3>
-      <p>お掃除機能が自動で掃除するのは、フィルターの表面だけ。<br>内部の熱交換器やファンには一切触れていません。<br>むしろ構造が複雑な分、通常のエアコンよりカビが溜まりやすい。<br>
+      <p>お掃除機能が自動で掃除するのは、フィルターの表面だけ。内部の熱交換器やファンには一切触れていません。むしろ構造が複雑な分、通常のエアコンよりカビが溜まりやすい。<br>
       <strong>「お掃除機能付きだから大丈夫」——その思い込みが、一番危険です。</strong></p>
     </div>
   </div>
 </section>
 
-<!-- SCENE -->
-<section class="section scene-section">
-  <div class="section-inner fade-in">
-    <h2 class="section-title"><span class="under">クリーニングのあと、<br>こんな声をいただいています</span></h2>
+<!-- VOICES -->
+<section class="section section-alt">
+  <div class="wrap fade">
+    <div class="section-label">VOICE</div>
+    <h2 class="section-title">クリーニングのあと、<br>こんな声をいただいています</h2>
     <div class="voice-list">
       <div class="voice-item">
-        <div class="quote">"</div>
+        <div class="q">"</div>
         スイッチを入れた瞬間、空気が違った
       </div>
       <div class="voice-item">
-        <div class="quote">"</div>
+        <div class="q">"</div>
         子どもがくしゃみをしなくなった。それだけで、頼んでよかったと思えた
       </div>
       <div class="voice-item">
-        <div class="quote">"</div>
+        <div class="q">"</div>
         あのカビ臭さが完全に消えた。寝室で安心して眠れるようになった
       </div>
       <div class="voice-item">
-        <div class="quote">"</div>
+        <div class="q">"</div>
         洗浄後の真っ黒な汚水を見て、今まで家族にこれを吸わせていたのかと思った
       </div>
     </div>
-    <div class="scene-story">
+    <div class="scene-box">
       クリーニングが終わった夕方。<br><br>
       リビングのエアコンをつけると、無臭の、冷たい風だけが出てくる。<br><br>
       子どもが「今日はくしゃみ出ないね」と言う。<br><br>
@@ -821,50 +761,52 @@
 </section>
 
 <!-- REASONS -->
-<section class="section reasons-section">
-  <div class="section-inner fade-in">
-    <h2 class="section-title"><span class="accent">LOCAL-LOOP</span>が<br><span class="under">選ばれる理由</span></h2>
+<section class="section">
+  <div class="wrap fade">
+    <div class="section-label">WHY LOCAL-LOOP</div>
+    <h2 class="section-title">LOCAL-LOOPが選ばれる理由</h2>
     <div class="reason-list">
       <div class="reason-item">
-        <div class="reason-num">理由① 技術</div>
-        <div class="reason-title">研修を通過したエキスパートが担当</div>
+        <div class="reason-head">
+          <span class="reason-num">理由① 技術</span>
+          <span class="reason-title">研修を通過したエキスパートが担当</span>
+        </div>
         <div class="reason-body">
-          LOCAL-LOOPのスタッフは、複数の研修プログラムを修了しています。<br><br>
-          ご家庭では手が届かないエアコン内部を「完全分解洗浄」。熱交換器、ファン、ドレンパンまで、<strong>奥の、奥の、さらに奥まで。</strong><br><br>
-          「長くやっているから安心」ではなく、「研修でスキルが証明されているから安心」。それがLOCAL-LOOPの基準です。
+          LOCAL-LOOPのスタッフは、複数の研修プログラムを修了しています。熱交換器、ファン、ドレンパンまで、<strong>奥の、奥の、さらに奥まで。</strong><br>「長くやっているから安心」ではなく、「研修でスキルが証明されているから安心」。それがLOCAL-LOOPの基準です。
         </div>
       </div>
       <div class="reason-item">
-        <div class="reason-num">理由② 料金</div>
-        <div class="reason-title">料金は2パターンだけ。以上。</div>
+        <div class="reason-head">
+          <span class="reason-num">理由② 料金</span>
+          <span class="reason-title">料金は2パターンだけ。以上。</span>
+        </div>
         <div class="reason-body">
-          ・通常壁掛け：11,000円（税込）<br>
-          ・お掃除機能付き：19,800円（税込）<br><br>
-          <strong>お見積もり後の追加料金は一切いただきません。</strong><br>
-          「終わったら思ったより高かった」はLOCAL-LOOPでは起こりません。<br><br>
-          エアコンの型番がわかれば、お電話の時点で料金が確定します。
+          通常壁掛け：11,000円／お掃除機能付き：19,800円（いずれも税込）。<strong>お見積もり後の追加料金は一切いただきません。</strong>型番がわかれば、お電話の時点で料金が確定します。
         </div>
       </div>
       <div class="reason-item">
-        <div class="reason-num">理由③ 価格</div>
-        <div class="reason-title">仲介手数料ゼロ。だから安い。</div>
+        <div class="reason-head">
+          <span class="reason-num">理由③ 価格</span>
+          <span class="reason-title">仲介手数料ゼロ。だから安い。</span>
+        </div>
         <div class="reason-body">
-          LOCAL-LOOPは、大手マッチングサイトを使っていません。<br><br>
-          このサイトから直接ご予約いただく仕組みなので、仲介手数料がかからない分を価格とサービスに還元しています。<br><br>
-          <strong>「安いから質が低い」ではなく、「仕組みが効率的だから安くできる」。</strong>それがこの価格の理由です。
+          LOCAL-LOOPは、大手マッチングサイトを使っていません。直接ご予約いただく仕組みなので、仲介手数料がかからない分を価格とサービスに還元しています。<strong>「安いから質が低い」ではなく、「仕組みが効率的だから安くできる」。</strong>
         </div>
       </div>
       <div class="reason-item">
-        <div class="reason-num">理由④ 保険</div>
-        <div class="reason-title">損害保険に入っています</div>
+        <div class="reason-head">
+          <span class="reason-num">理由④ 保険</span>
+          <span class="reason-title">損害保険に入っています</span>
+        </div>
         <div class="reason-body">
-          万が一、清掃が原因でエアコンが故障した場合、損害保険で保障いたします。（製造10年未満のエアコンが対象）<br><br>
-          「知らない業者に頼んで壊れたらどうしよう」——その不安を、保険という事実で担保しています。
+          万が一、清掃が原因でエアコンが故障した場合、損害保険で保障いたします。（製造10年未満のエアコンが対象）「知らない業者に頼んで壊れたらどうしよう」——その不安を、保険という事実で担保しています。
         </div>
       </div>
       <div class="reason-item">
-        <div class="reason-num">理由⑤ 安心</div>
-        <div class="reason-title">知らない人を家に入れる不安を、4つの約束で解消します</div>
+        <div class="reason-head">
+          <span class="reason-num">理由⑤ 安心</span>
+          <span class="reason-title">4つの約束</span>
+        </div>
         <div class="reason-body">
           ① スリッパ持参、清潔な身だしなみで訪問します<br>
           ② 養生シートで床・壁をしっかり保護します<br>
@@ -878,97 +820,79 @@
 </section>
 
 <!-- PRICE -->
-<section class="section price-section">
-  <div class="section-inner fade-in">
-    <h2 class="section-title"><span class="under">料金は2パターンだけ。</span></h2>
+<section class="section section-alt">
+  <div class="wrap fade">
+    <div class="section-label">PRICE</div>
+    <h2 class="section-title">料金は2パターンだけ。</h2>
 
     <table class="price-table">
-      <tr>
-        <th colspan="3">通常壁掛け（お掃除機能なし）</th>
-      </tr>
-      <tr>
-        <td>1台目</td>
-        <td></td>
-        <td class="price-amount">11,000<span class="price-note-small">円（税込）</span></td>
-      </tr>
-      <tr>
-        <td>2台目以降</td>
-        <td></td>
-        <td class="price-amount">9,900<span class="price-note-small">円（税込）</span></td>
-      </tr>
+      <tr><th colspan="2">通常壁掛け（お掃除機能なし）</th></tr>
+      <tr><td>1台目</td><td class="amount">11,000<small>円（税込）</small></td></tr>
+      <tr><td>2台目以降</td><td class="amount">9,900<small>円（税込）</small></td></tr>
     </table>
 
     <table class="price-table">
-      <tr>
-        <th colspan="3">お掃除機能付き</th>
-      </tr>
-      <tr>
-        <td>1台目</td>
-        <td></td>
-        <td class="price-amount">19,800<span class="price-note-small">円（税込）</span></td>
-      </tr>
-      <tr>
-        <td>2台目以降</td>
-        <td></td>
-        <td class="price-amount">17,600<span class="price-note-small">円（税込）</span></td>
-      </tr>
+      <tr><th colspan="2">お掃除機能付き</th></tr>
+      <tr><td>1台目</td><td class="amount">19,800<small>円（税込）</small></td></tr>
+      <tr><td>2台目以降</td><td class="amount">17,600<small>円（税込）</small></td></tr>
     </table>
 
     <p class="price-note">※天井埋め込みタイプは別途お問い合わせください</p>
 
     <div class="campaign-box">
-      <span class="campaign-title">【サイト限定】今月のキャンペーン</span>
-      <ul class="campaign-benefits">
-        <li>特典① 防カビ抗菌コート<br>　3,000円 → <strong>無料</strong></li>
+      <div class="campaign-title">【サイト限定】今月のキャンペーン</div>
+      <ul class="campaign-list">
+        <li>特典① 防カビ抗菌コート 3,000円 → <strong>無料</strong></li>
         <li>特典② 2台目以降 <strong>1,100円OFF</strong></li>
-        <li>特典③ 室外機清掃オプション<br>　今月限定 <strong>特別価格</strong></li>
+        <li>特典③ 室外機清掃オプション 今月限定 <strong>特別価格</strong></li>
       </ul>
       <p class="campaign-period">開催期間：2026年4月30日まで</p>
     </div>
 
-    <a href="#final-cta" class="btn-main">▶ 今すぐキャンペーン予約する</a>
+    <a href="#cta" class="btn-main">今すぐキャンペーン予約する</a>
   </div>
 </section>
 
 <!-- STEPS -->
-<section class="section steps-section">
-  <div class="section-inner fade-in">
-    <h2 class="section-title"><span class="under">ご予約から完了まで、5ステップ。</span></h2>
-    <p class="text-center mt-8" style="font-size:14px;color:var(--text-sub);margin-bottom:32px;">予約完了まで最短5分。作業時間は1台あたり約60〜90分です。</p>
+<section class="section">
+  <div class="wrap fade">
+    <div class="section-label">FLOW</div>
+    <h2 class="section-title">ご予約から完了まで、5ステップ。</h2>
+    <p style="text-align:center;font-size:13px;color:var(--text-sub);margin-bottom:32px;">予約完了まで最短5分。作業時間は1台あたり約60〜90分です。</p>
     <div class="step-list">
       <div class="step-item">
         <div class="step-num">1</div>
         <div class="step-content">
           <div class="step-title">お問い合わせ・ご予約</div>
-          <div class="step-body">WEBフォーム・お電話・LINEからお気軽にお問い合わせください。エアコンの型番がわかれば、その場で料金が確定します。わからなくても大丈夫です。</div>
+          <div class="step-body">WEBフォーム・お電話・LINEからお気軽にどうぞ。型番がわかれば、その場で料金が確定します。</div>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">2</div>
         <div class="step-content">
           <div class="step-title">日程調整・お見積り確定</div>
-          <div class="step-body">ご希望の日時をお伺いし、訪問日を決定します。土日・祝日も対応可能。お客様のご都合に合わせます。</div>
+          <div class="step-body">ご希望の日時をお伺いし、訪問日を決定します。土日・祝日も対応可能。</div>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">3</div>
         <div class="step-content">
           <div class="step-title">訪問・養生・分解</div>
-          <div class="step-body">スリッパ持参、清潔な身だしなみでお伺いします。養生シートで床・壁を保護してから、エアコンを分解します。</div>
+          <div class="step-body">スリッパ持参、清潔な身だしなみでお伺いします。養生シートで床・壁を保護してから分解します。</div>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">4</div>
         <div class="step-content">
           <div class="step-title">高圧洗浄で徹底クリーニング</div>
-          <div class="step-body">熱交換器・ファン・ドレンパンまで、高圧洗浄でカビ・ホコリ・汚れを除去。真っ黒な汚水が流れ出る様子に、驚かれるお客様がほとんどです。</div>
+          <div class="step-body">熱交換器・ファン・ドレンパンまで徹底洗浄。真っ黒な汚水が流れ出る様子に、驚かれるお客様がほとんどです。</div>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">5</div>
         <div class="step-content">
           <div class="step-title">組み立て・動作確認・完了</div>
-          <div class="step-body">分解した部品を丁寧に組み立て、動作確認をして作業完了。エアコンの使い方のアドバイスもお伝えします。</div>
+          <div class="step-body">丁寧に組み立て、動作確認をして作業完了。エアコンの使い方のアドバイスもお伝えします。</div>
         </div>
       </div>
     </div>
@@ -976,101 +900,81 @@
 </section>
 
 <!-- ASSURANCE -->
-<section class="section assurance-section">
-  <div class="section-inner fade-in">
-    <h2 class="section-title"><span class="under">安心してご依頼いただくために</span></h2>
-    <div class="assurance-grid">
+<section class="section section-alt">
+  <div class="wrap fade">
+    <div class="section-label">ASSURANCE</div>
+    <h2 class="section-title">安心してご依頼いただくために</h2>
+    <div class="assurance-list">
       <div class="assurance-item">
         <div class="assurance-icon">💴</div>
-        <div>
-          <div class="assurance-title">明朗会計</div>
-          <div class="assurance-body">出張費・追加料金は一切いただきません。お見積もりの金額がそのままお支払い金額です。</div>
-        </div>
+        <div><div class="assurance-title">明朗会計</div><div class="assurance-body">出張費・追加料金は一切いただきません。お見積もりの金額がそのままお支払い金額です。</div></div>
       </div>
       <div class="assurance-item">
         <div class="assurance-icon">🛡</div>
-        <div>
-          <div class="assurance-title">損害保険完備</div>
-          <div class="assurance-body">万が一の故障も安心。製造10年未満のエアコンは清掃が原因の故障を保障いたします。</div>
-        </div>
+        <div><div class="assurance-title">損害保険完備</div><div class="assurance-body">万が一の故障も安心。製造10年未満のエアコンは清掃が原因の故障を保障いたします。</div></div>
       </div>
       <div class="assurance-item">
         <div class="assurance-icon">📅</div>
-        <div>
-          <div class="assurance-title">土日・祝日対応</div>
-          <div class="assurance-body">土日祝も対応可能。お客様のご都合に合わせます。</div>
-        </div>
+        <div><div class="assurance-title">土日・祝日対応</div><div class="assurance-body">土日祝も対応可能。お客様のご都合に合わせます。</div></div>
       </div>
       <div class="assurance-item">
         <div class="assurance-icon">👔</div>
-        <div>
-          <div class="assurance-title">清潔なスタッフ</div>
-          <div class="assurance-body">スリッパ持参・清潔感のある身だしなみでお伺いします。</div>
-        </div>
+        <div><div class="assurance-title">清潔なスタッフ</div><div class="assurance-body">スリッパ持参・清潔感のある身だしなみでお伺いします。</div></div>
       </div>
       <div class="assurance-item">
         <div class="assurance-icon">🚫</div>
-        <div>
-          <div class="assurance-title">押し売りなし</div>
-          <div class="assurance-body">訪問時、追加料金・物品の販売・押し売りは一切いたしません。</div>
-        </div>
+        <div><div class="assurance-title">押し売りなし</div><div class="assurance-body">訪問時、追加料金・物品の販売・押し売りは一切いたしません。</div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- AREA -->
-<section class="section area-section">
-  <div class="section-inner fade-in">
-    <h2 class="section-title"><span class="under">対応エリア</span></h2>
+<section class="section">
+  <div class="wrap fade">
+    <div class="section-label">AREA</div>
+    <h2 class="section-title">対応エリア</h2>
     <div class="area-box">
-      <div class="area-badge">指定エリア内は出張費無料！</div>
-      <div class="area-names">
-        埼玉県<br>
-        川越市・熊谷市・鴻巣市・東松山市<br>
-        およびその周辺エリア
-      </div>
-      <div class="area-sub">※対応エリア外の方もお気軽にご相談ください</div>
+      <div class="area-label">指定エリア内は出張費無料！</div>
+      <div class="area-names">埼玉県　川越市・熊谷市・鴻巣市・東松山市<br>およびその周辺エリア</div>
+      <div class="area-note">※対応エリア外の方もお気軽にご相談ください</div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section faq-section">
-  <div class="section-inner fade-in">
-    <h2 class="section-title"><span class="under">よくあるご質問</span></h2>
+<section class="section section-alt">
+  <div class="wrap fade">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">よくあるご質問</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q"><span><span class="q-mark">Q</span>見積もり後に追加料金はかかりますか？</span><span class="arrow">▼</span></div>
+        <div class="faq-q"><span><span class="qmark">Q </span>見積もり後に追加料金はかかりますか？</span><span class="arrow">▼</span></div>
         <div class="faq-a">一切かかりません。お見積もりの金額が、そのままお支払い金額です。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span><span class="q-mark">Q</span>お掃除機能付きかどうかわかりません。</span><span class="arrow">▼</span></div>
+        <div class="faq-q"><span><span class="qmark">Q </span>お掃除機能付きかどうかわかりません。</span><span class="arrow">▼</span></div>
         <div class="faq-a">エアコン本体の型番で確認できます。型番がわからなくても大丈夫です。お電話かLINEでお気軽にお問い合わせください。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span><span class="q-mark">Q</span>作業時間はどれくらいですか？</span><span class="arrow">▼</span></div>
+        <div class="faq-q"><span><span class="qmark">Q </span>作業時間はどれくらいですか？</span><span class="arrow">▼</span></div>
         <div class="faq-a">1台あたり約60〜90分が目安です。お掃除機能付きの場合は、もう少しお時間をいただくことがあります。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span><span class="q-mark">Q</span>万が一エアコンが故障したら？</span><span class="arrow">▼</span></div>
+        <div class="faq-q"><span><span class="qmark">Q </span>万が一エアコンが故障したら？</span><span class="arrow">▼</span></div>
         <div class="faq-a">製造10年未満のエアコンであれば、清掃が原因の故障は損害保険で保障いたします。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span><span class="q-mark">Q</span>キャンセル料はかかりますか？</span><span class="arrow">▼</span></div>
+        <div class="faq-q"><span><span class="qmark">Q </span>キャンセル料はかかりますか？</span><span class="arrow">▼</span></div>
         <div class="faq-a">3日前の18:00まで無料です。2日前：30%、前日：50%、当日：全額となります。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span><span class="q-mark">Q</span>駐車場がありません。</span><span class="arrow">▼</span></div>
+        <div class="faq-q"><span><span class="qmark">Q </span>駐車場がありません。</span><span class="arrow">▼</span></div>
         <div class="faq-a">お近くのパーキングを利用いたします。恐れ入りますが、駐車費用はお客様ご負担となります。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span><span class="q-mark">Q</span>古いエアコンでも対応できますか？</span><span class="arrow">▼</span></div>
-        <div class="faq-a">製造10年以上のエアコンも対応可能です。ただし、清掃が原因の故障は保証対象外となります。事前にご了承ください。</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span><span class="q-mark">Q</span>実際に見てもらって見積もりはできますか？</span><span class="arrow">▼</span></div>
-        <div class="faq-a">現地でのお見積りは大歓迎です。無料でお伺いいたします。</div>
+        <div class="faq-q"><span><span class="qmark">Q </span>古いエアコンでも対応できますか？</span><span class="arrow">▼</span></div>
+        <div class="faq-a">製造10年以上のエアコンも対応可能です。ただし、清掃が原因の故障は保証対象外となります。</div>
       </div>
     </div>
   </div>
@@ -1078,37 +982,31 @@
 
 <!-- YES CTA -->
 <section class="section yes-section">
-  <div class="section-inner fade-in">
-    <h2 class="yes-title">最後に、3つだけ確認させてください。</h2>
+  <div class="wrap fade">
+    <div class="section-label" style="color:rgba(255,255,255,.7);">CONFIRM</div>
+    <h2 class="section-title">最後に、3つだけ確認させてください。</h2>
     <ul class="yes-list">
       <li>エアコンをつけたとき、においや汚れが気になっていますか？</li>
       <li>お子さんやご家族が吸う空気を、きれいにしたいですか？</li>
       <li>追加料金なし・保険完備・研修済みのスタッフが来てくれるなら、一度プロに任せてみたいですか？</li>
     </ul>
-    <p class="yes-conclusion">
-      3つとも「はい」なら、<br>
-      LOCAL-LOOPにお任せください。
-    </p>
-    <div class="yes-campaign">
-      キャンペーン中のご予約で、防カビ抗菌コート（3,000円相当）が無料です。
-    </div>
-    <a href="#final-cta" class="btn-main-white">▶ 今すぐキャンペーン予約する</a>
-    <a href="#final-cta" class="btn-line-white">LINE で無料相談</a>
+    <p class="yes-note">3つとも「はい」なら、LOCAL-LOOPにお任せください。</p>
+    <div class="yes-campaign">キャンペーン中のご予約で、防カビ抗菌コート（3,000円相当）が無料です。</div>
+    <a href="#cta" class="btn-main">今すぐキャンペーン予約する</a>
+    <a href="#cta" class="btn-line">LINEで無料相談</a>
   </div>
 </section>
 
 <!-- FINAL CTA -->
-<section class="section final-cta" id="final-cta">
-  <div class="section-inner fade-in">
-    <div class="final-cta-box">
-      <h2 class="final-cta-title">まずはお気軽にお問い合わせください</h2>
-      <p class="final-cta-sub">お見積り無料・24時間WEB受付</p>
-      <div style="background:#FFF3E0;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:13px;font-weight:700;color:var(--campaign);">
-        【サイト限定】今だけ特別価格！<br>開催期間：2026年4月30日まで
-      </div>
-      <a href="#" class="btn-main">▶ WEBで予約する（24時間受付）</a>
-      <a href="#" class="btn-line">LINE で無料相談・予約</a>
-      <a href="tel:05052356520" class="tel-display">050-5235-6520</a>
+<section class="section" id="cta">
+  <div class="wrap fade">
+    <div class="cta-box">
+      <h2 class="cta-title">まずはお気軽にお問い合わせください</h2>
+      <p class="cta-sub">お見積り無料・24時間WEB受付</p>
+      <div class="cta-campaign">【サイト限定】今だけ特別価格！ 開催期間：2026年4月30日まで</div>
+      <a href="#" class="btn-main">WEBで予約する（24時間受付）</a>
+      <a href="#" class="btn-line">LINEで無料相談・予約</a>
+      <a href="tel:05052356520" class="tel-link">050-5235-6520</a>
       <p class="tel-hours">受付時間：9:00〜18:00（土日祝も対応）</p>
     </div>
   </div>
@@ -1116,20 +1014,20 @@
 
 <!-- POSTSCRIPT -->
 <section class="section ps-section">
-  <div class="section-inner fade-in">
-    <h2 class="ps-title">「また今度でいいかな」<br>と思っているあなたへ</h2>
+  <div class="wrap fade">
+    <h2 class="ps-title-red">「また今度でいいかな」と思っているあなたへ</h2>
     <p class="ps-body">エアコンのカビは、使うたびに内部で繁殖します。</p>
     <p class="ps-body">夏が終わってから頼もうと思っても、その間ずっと、カビの胞子を家族が吸い続けることになります。</p>
     <p class="ps-body">防カビ抗菌コート無料のキャンペーンは、4月30日で終了します。</p>
-    <p class="ps-conclusion">来シーズンまで待つより、今動いたほうが、家族の健康を守れる期間が長くなります。</p>
-    <a href="#final-cta" class="btn-main">▶ 今すぐキャンペーン予約する</a>
+    <p class="ps-punch">来シーズンまで待つより、今動いたほうが、家族の健康を守れる期間が長くなります。</p>
+    <a href="#cta" class="btn-main">今すぐキャンペーン予約する</a>
   </div>
 </section>
 
 <!-- NOTES -->
-<section class="section notes-section">
-  <div class="section-inner">
-    <h3 class="notes-title">ご依頼前にご確認ください</h3>
+<section class="section section-alt">
+  <div class="wrap">
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;">ご依頼前にご確認ください</h3>
     <ul class="notes-list">
       <li>製造から10年以上経過しているエアコンは、洗浄が原因で故障した場合でも保証対象外となります</li>
       <li>エアコンの臭いは洗浄により改善しますが、若干残る場合がございます</li>
@@ -1142,24 +1040,23 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer>
   <div class="footer-logo">LOCAL-LOOP</div>
   <div class="footer-info">
     川越市・熊谷市・鴻巣市・東松山市 エアコンクリーニング<br>
-    TEL: 050-5235-6520<br>
-    受付時間：9:00〜18:00（土日祝も対応可）
+    TEL: 050-5235-6520　受付時間：9:00〜18:00（土日祝も対応可）
   </div>
   <div class="footer-copy">© 2026 LOCAL-LOOP All Rights Reserved.</div>
 </footer>
 
-<!-- FIXED FOOTER CTA -->
-<div class="fixed-footer-cta">
-  <div class="campaign-label">【サイト限定】<br>キャンペーン実施中！</div>
-  <a href="#final-cta" class="btn-footer">今すぐ予約する</a>
+<!-- FIXED FOOTER -->
+<div class="fixed-footer">
+  <span class="fixed-footer-note">【サイト限定】キャンペーン実施中！</span>
+  <a href="#cta" class="btn-footer">今すぐ予約する</a>
 </div>
 
 <script>
-  // FAQ accordion
+  // FAQ
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
       const item = q.closest('.faq-item');
@@ -1169,11 +1066,11 @@
     });
   });
 
-  // Fade in on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  // Fade in
+  const obs = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
